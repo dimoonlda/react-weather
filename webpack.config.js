@@ -13,7 +13,8 @@ module.exports = {
             WeatherForm: 'app/components/WeatherForm',
             WeatherMessage: 'app/components/WeatherMessage',
             About: 'app/components/About.jsx',
-            Example: 'app/components/Example.jsx'
+            Example: 'app/components/Example.jsx',
+            openWeatherMapService: 'app/api/openWeatherMapService.jsx'
         },
         extensions: ['', '.js', '.jsx']
     },
@@ -26,7 +27,8 @@ module.exports = {
                 },
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
-            }
+            },
+            { test: /jquery[\\\/]src[\\\/]selector\.js$/, loader: 'amd-define-factory-patcher-loader' }
         ]
     }
 };
