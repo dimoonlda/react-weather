@@ -30,5 +30,6 @@ module.exports = {
             },
             { test: /jquery[\\\/]src[\\\/]selector\.js$/, loader: 'amd-define-factory-patcher-loader' }
         ]
-    }
+    },
+    devtool: 'cheap-module-eval-source-map'
 };
