@@ -11,13 +11,13 @@ var WeatherForm = React.createClass({
     },
     render: function () {
         return (
-            <div>
+            <div className="col-sm-4 col-sm-offset-4">
                 <form onSubmit={this.onFormSubmit}>
-                    <div>
-                        <input ref="location" type="text" placeholder="Enter city name"/>
+                    <div className="form-group">
+                        <input className="form-control" ref="location" type="text" placeholder="Enter city name"/>
                     </div>
                     <div>
-                        <button>Get Weather</button>
+                        <button className="btn btn-default btn-block">Get Weather</button>
                     </div>
                 </form>
             </div>
