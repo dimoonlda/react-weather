@@ -1,7 +1,6 @@
 var React = require('react');
 
-var WeatherMessage = (props) => {
-    var {temp, location} = props;
+var WeatherMessage = ({temp, location}) => {
     return (
         <div>
             <span>It's {temp} in {location}</span>
