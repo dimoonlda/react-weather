@@ -1,5 +1,20 @@
+var webpack = require('webpack');
+
 module.exports = {
-    entry: './app/app.jsx',
+    entry: [
+        'script!jquery/dist/jquery.min.js',
+        'script!foundation-sites/dist/js/foundation.min.js',
+        './app/app.jsx'
+    ],
+    externals: {
+        jquery: 'jQuery'
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            '$': 'jquery',
+            'jQuery': 'jquery'
+        })
+    ],
     output: {
         path: __dirname,
         filename: './public/bundle.js'
@@ -13,7 +28,7 @@ module.exports = {
             WeatherForm: 'app/components/WeatherForm',
             WeatherMessage: 'app/components/WeatherMessage',
             About: 'app/components/About.jsx',
-            Example: 'app/components/Example.jsx',
+            Example: 'app/components/Examples.jsx',
             openWeatherMapService: 'app/api/openWeatherMapService.jsx',
             ErrorModal: 'app/components/ErrorModal.jsx'
         },
