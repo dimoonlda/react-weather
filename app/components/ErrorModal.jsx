@@ -1,29 +1,31 @@
 var React = require('react');
 
-var ErrorModal = ({message}) => {
-    return {
-        render: function () {
-            return (
-                <div>{message}</div>
-/*                <div className="modal" tabindex="-1" role="dialog">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 className="modal-title">Modal title</h4>
-                            </div>
-                            <div className="modal-body">
-                                <p>One fine body&hellip;</p>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>*/
-            )
+var ErrorModal = React.createClass({
+    getDefaultProps: function () {
+        return {
+            title: 'Error!'
         }
+    },
+    componentDidMount: function () {
+        var modal = new Foundation.Reveal($('#error-modal'));
+        modal.open();
+    },
+    propTypes: {
+        title: React.PropTypes.string,
+        message: React.PropTypes.string.isRequired
+    },
+    render: function () {
+        var {title, message} = this.props;
+        return (
+            <div id="error-modal" className="reveal tiny text-center" data-reveal="">
+                <h3>{title}</h3>
+                <p>{message}</p>
+                <p>
+                    <button className="button hollow text-center" data-close="">Ok</button>
+                </p>
+            </div>
+        )
     }
-};
+});
 
 module.exports = ErrorModal;
